@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  // { name: 'Service', href: '#services' },
-  { name: 'Resume', href: '#experience' },
-  { name: 'Project', href: '#portfolio' },
+  { name: 'Skills', href: '#services' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Education', href: '#education' },
+  // { name: 'Project', href: '#portfolio' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -28,7 +29,7 @@ const Header: React.FC = () => {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -38,17 +39,16 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <nav className={`flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-black'}`}>
           <a href="#home" className="flex items-center gap-2 text-white text-xl font-bold">
-            <span className="bg-primary rounded-full p-2 h-8 w-8 flex items-center justify-center text-black font-extrabold text-sm">JC</span>
-            <span className="text-white">JCREA</span>
+            <span className="bg-primary rounded-full p-2 h-8 w-8 flex items-center justify-center text-black font-extrabold text-sm">MO</span>
+            <span className="text-white">Miryan</span>
           </a>
           <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeLink === link.href ? 'bg-primary text-black' : 'text-white hover:text-primary'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeLink === link.href ? 'bg-primary text-black' : 'text-white hover:text-primary'
+                  }`}
                 onClick={() => setActiveLink(link.href)}
               >
                 {link.name}
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             ))}
           </div>
           <div className="md:hidden">
-             {/* Mobile menu button can be added here */}
+            {/* Mobile menu button can be added here */}
             <button className="text-white">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />

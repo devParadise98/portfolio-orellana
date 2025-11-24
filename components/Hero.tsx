@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-primary rounded-full" />
             <img
               src={images.profileImage}
-              alt="Jenny, Product Designer"
+              alt="Miryan, Front End Developer"
               className="relative z-10 w-full max-w-xs md:max-w-sm mx-auto"
             />
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-4 glassmorphism border border-white/20 rounded-full px-4 py-3">
@@ -37,18 +37,17 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-20 max-w-xs text-left hidden md:block">
+        <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-20 max-w-xs text-left hidden md:block">
           <p className="text-gray-600 text-lg">
             <span className="text-primary text-4xl font-serif">“</span>
-            Jenny's Exceptional product design ensure our website's success.
-            <span className="font-bold block mt-2">Highly Recommended</span>
+            With over 5 years of experience in frontend development, I have contributed to the design and implementation of efficient, user-centered interfaces.
           </p>
-        </div> */}
+        </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-20 text-left hidden md:block">
           <div className="flex text-primary text-2xl">
             <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
           </div>
-          <p className="text-5xl font-bold mt-2">5 <span className="text-gray-400">Years</span></p>
+          <p className="text-5xl font-bold mt-2">5+ <span className="text-gray-400">Years</span></p>
           <p className="text-gray-600">Experience</p>
         </div>
       </div>

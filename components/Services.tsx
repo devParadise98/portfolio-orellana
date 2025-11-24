@@ -4,26 +4,30 @@ import { FiArrowUpRight } from 'react-icons/fi';
 
 const servicesData = [
   {
-    title: 'UI/UX Design',
-    imgSrc: 'https://picsum.photos/seed/uiux/400/300',
+    title: 'Frontend Development',
+    description: 'ReactJS, TypeScript, NextJS, Redux, Hooks, Styled Components, SASS, LitElement, Webpack.',
+    imgSrc: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
-    title: 'Web Design',
-    imgSrc: 'https://picsum.photos/seed/webdesign/400/300',
+    title: 'Backend & Cloud',
+    description: 'NodeJS, Express, AWS (EC2, S3, Route53, CloudFront), Azure.',
+    imgSrc: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
-    title: 'Landing Page',
-    imgSrc: 'https://picsum.photos/seed/landingpage/400/300',
+    title: 'Tools & Methodologies',
+    description: 'Git, JIRA, Figma, Scrum, Agile, Visual Studio, Power BI.',
+    imgSrc: 'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
 ];
 
-const ServiceCard: React.FC<{ title: string; imgSrc: string; }> = ({ title, imgSrc }) => (
-  <div className="bg-dark-secondary rounded-2xl p-6 flex flex-col group">
+const ServiceCard: React.FC<{ title: string; description: string; imgSrc: string; }> = ({ title, description, imgSrc }) => (
+  <div className="bg-dark-secondary rounded-2xl p-6 flex flex-col group h-full">
     <div className="flex-grow">
-      <h3 className="text-2xl font-semibold text-white">{title}</h3>
+      <h3 className="text-2xl font-semibold text-white mb-2">{title}</h3>
+      <p className="text-gray-400">{description}</p>
     </div>
-    <div className="relative mt-6">
-      <img src={imgSrc} alt={title} className="rounded-xl w-full" />
+    <div className="relative mt-6 overflow-hidden rounded-xl">
+      <img src={imgSrc} alt={title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
       <div className="absolute -bottom-4 right-4 bg-gray-800 text-white rounded-full p-4 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
         <FiArrowUpRight size={24} />
       </div>
@@ -36,9 +40,9 @@ const Services: React.FC = () => {
     <section id="services" className="bg-dark text-white py-20 px-4">
       <div className="container mx-auto">
         <div className="md:flex md:items-end md:justify-between mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-0">My Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-0">Technical <span className="text-primary">Skills</span></h2>
           <p className="text-gray-400 max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.
+            A comprehensive set of technologies and methodologies I use to build efficient and scalable solutions.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
