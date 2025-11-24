@@ -3,8 +3,8 @@ import React from 'react';
 
 const experienceData = [
   {
-    company: 'Cognizant, Mumbai',
-    period: 'Sep 2016- July 2020',
+    company: 'PlayTec',
+    period: 'Feb 2019 - Mar 2021',
     role: 'Experience Designer',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales.',
     isCurrent: false,

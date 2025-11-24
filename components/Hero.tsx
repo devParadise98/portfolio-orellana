@@ -2,6 +2,7 @@
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
+import { images } from '@/assets/images';
 
 const Hero: React.FC = () => {
   return (
@@ -11,18 +12,18 @@ const Hero: React.FC = () => {
           <span className="text-sm">Hello! 👋</span>
         </div>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900">
-          I'm <span className="text-primary">Jenny</span>,
+          I'm <span className="text-primary">Miryan</span>,
         </h1>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mt-2">
-          Product Designer
+          Front End Developer
         </h1>
 
         <div className="mt-8 flex justify-center items-end">
           <div className="relative w-full max-w-lg">
             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-primary rounded-full" />
-            <img 
-              src="https://picsum.photos/id/237/400/500" 
-              alt="Jenny, Product Designer" 
+            <img
+              src={images.profileImage}
+              alt="Jenny, Product Designer"
               className="relative z-10 w-full max-w-xs md:max-w-sm mx-auto"
             />
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-4 glassmorphism border border-white/20 rounded-full px-4 py-3">
@@ -36,19 +37,19 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-20 max-w-xs text-left hidden md:block">
-            <p className="text-gray-600 text-lg">
-                <span className="text-primary text-4xl font-serif">“</span>
-                Jenny's Exceptional product design ensure our website's success. 
-                <span className="font-bold block mt-2">Highly Recommended</span>
-            </p>
-        </div>
+        {/* <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-20 max-w-xs text-left hidden md:block">
+          <p className="text-gray-600 text-lg">
+            <span className="text-primary text-4xl font-serif">“</span>
+            Jenny's Exceptional product design ensure our website's success.
+            <span className="font-bold block mt-2">Highly Recommended</span>
+          </p>
+        </div> */}
         <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-20 text-left hidden md:block">
-             <div className="flex text-primary text-2xl">
-                <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
-             </div>
-             <p className="text-5xl font-bold mt-2">10 <span className="text-gray-400">Years</span></p>
-             <p className="text-gray-600">Experience</p>
+          <div className="flex text-primary text-2xl">
+            <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+          </div>
+          <p className="text-5xl font-bold mt-2">5 <span className="text-gray-400">Years</span></p>
+          <p className="text-gray-600">Experience</p>
         </div>
       </div>
     </section>

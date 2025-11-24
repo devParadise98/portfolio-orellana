@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <Services />
+        {/* <Services /> */}
         <Experience />
         <HireMe />
         <Portfolio />
