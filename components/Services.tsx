@@ -1,56 +1,47 @@
-
 import React from 'react';
-import { FiArrowUpRight } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
+import { SiFigma, SiNextdotjs, SiTypescript, SiJavascript, SiVercel } from 'react-icons/si';
+import { FaReact, FaAws, FaCss3Alt, FaSass, FaGithub, FaLayerGroup } from 'react-icons/fa';
+import { TbBrandFramerMotion } from 'react-icons/tb';
 
-const ServiceCard: React.FC<{ title: string; description: string; imgSrc: string; }> = ({ title, description, imgSrc }) => (
-  <div className="bg-dark-secondary rounded-2xl p-6 flex flex-col group h-full">
-    <div className="flex-grow">
-      <h3 className="text-2xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-400">{description}</p>
-    </div>
-    <div className="relative mt-6 overflow-hidden rounded-xl">
-      <img src={imgSrc} alt={title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-      <div className="absolute -bottom-4 right-4 bg-gray-800 text-white rounded-full p-4 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-        <FiArrowUpRight size={24} />
-      </div>
-    </div>
+const SkillTag: React.FC<{ name: string; icon: React.ReactNode; color?: string }> = ({ name, icon, color }) => (
+  <div className="flex items-center gap-2 bg-dark-secondary px-4 py-3 rounded-xl border border-gray-800 hover:border-primary/50 transition-colors duration-300">
+    <span className="text-xl" style={{ color: color || 'white' }}>{icon}</span>
+    <span className="text-gray-300 font-medium">{name}</span>
   </div>
 );
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
 
-  const servicesData = [
-    {
-      title: t('skills.frontend'),
-      description: 'ReactJS, TypeScript, NextJS, Redux, Hooks, Styled Components, SASS, LitElement, Webpack.',
-      imgSrc: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      title: t('skills.backend'),
-      description: 'NodeJS, Express, AWS (EC2, S3, Route53, CloudFront), Azure.',
-      imgSrc: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      title: t('skills.tools'),
-      description: 'Git, JIRA, Figma, Scrum, Agile, Visual Studio, Power BI.',
-      imgSrc: 'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    },
+  const skills = [
+    { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
+    { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
+    { name: 'React', icon: <FaReact />, color: '#61DAFB' },
+    { name: 'Next.js', icon: <SiNextdotjs />, color: 'white' },
+    { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
+    { name: 'SASS', icon: <FaSass />, color: '#CC6699' },
+    { name: 'Figma', icon: <SiFigma />, color: '#F24E1E' },
+    { name: 'AWS', icon: <FaAws />, color: '#FF9900' },
+    { name: 'Vercel', icon: <SiVercel />, color: 'white' },
+    { name: 'GitHub', icon: <FaGithub />, color: 'white' },
+    { name: 'Axure', icon: <FaLayerGroup />, color: 'white' },
+    { name: 'Motion', icon: <TbBrandFramerMotion />, color: '#FFD700' }, // Using Framer Motion icon as proxy or generic motion icon
   ];
 
   return (
     <section id="services" className="bg-dark text-white py-20 px-4">
       <div className="container mx-auto">
-        <div className="md:flex md:items-end md:justify-between mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-0">{t('skills.title')} <span className="text-primary">{t('skills.titleHighlight')}</span></h2>
-          <p className="text-gray-400 max-w-md">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('skills.title')} <span className="text-primary">{t('skills.titleHighlight')}</span></h2>
+          <p className="text-gray-400 max-w-2xl text-lg">
             {t('skills.description')}
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+
+        <div className="flex flex-wrap gap-4">
+          {skills.map((skill) => (
+            <SkillTag key={skill.name} name={skill.name} icon={skill.icon} color={skill.color} />
           ))}
         </div>
       </div>
