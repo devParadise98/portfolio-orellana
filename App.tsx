@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './i18n'; // Import i18n configuration
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';

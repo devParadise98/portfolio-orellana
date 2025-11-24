@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#services' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Education', href: '#education' },
-  // { name: 'Project', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' },
-];
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header: React.FC = () => {
+  const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState('#home');
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const navLinks = [
+    { name: t('footer.nav.home'), href: '#home' },
+    { name: t('footer.nav.about'), href: '#about' },
+    { name: t('footer.nav.skills'), href: '#services' },
+    { name: t('footer.nav.experience'), href: '#experience' },
+    { name: t('footer.nav.education'), href: '#education' },
+    { name: t('footer.nav.contact'), href: '#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,9 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, []); // navLinks dependency removed to avoid re-running on every render, but ideally should be handled if language changes. 
+  // Actually, if language changes, component re-renders, navLinks is recreated, and we want the text to update.
+  // The scroll logic doesn't need to re-run on language change necessarily, but active link highlighting might need to persist.
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}>
@@ -45,7 +49,7 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href} // Changed key to href as name changes with language
                 href={link.href}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeLink === link.href ? 'bg-primary text-black' : 'text-white hover:text-primary'
                   }`}
@@ -54,8 +58,12 @@ const Header: React.FC = () => {
                 {link.name}
               </a>
             ))}
+            <div className="ml-4">
+              <LanguageSwitcher />
+            </div>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
             {/* Mobile menu button can be added here */}
             <button className="text-white">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,0 +1,30 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+const LanguageSwitcher: React.FC = () => {
+    const { i18n } = useTranslation();
+
+    const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        i18n.changeLanguage(event.target.value);
+    };
+
+    return (
+        <div className="relative">
+            <select
+                onChange={changeLanguage}
+                value={i18n.language}
+                className="appearance-none bg-black text-white border border-gray-700 rounded-full px-4 py-2 pr-8 text-sm font-medium focus:outline-none focus:border-primary cursor-pointer hover:border-gray-500 transition-colors"
+            >
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+            </div>
+        </div>
+    );
+};
+
+export default LanguageSwitcher;

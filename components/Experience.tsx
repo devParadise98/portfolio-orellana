@@ -1,43 +1,45 @@
-
 import React from 'react';
-
-const experienceData = [
-  {
-    company: 'Intercorp Retail',
-    period: 'Jun 2022 – Present',
-    role: 'Senior Front End Developer',
-    description: 'Developed scalable interfaces with ReactJS, TypeScript, and Styled Components (Micro Frontends). Collaborated in multidisciplinary teams, implemented unit tests, and managed tasks in Azure.',
-    isCurrent: true,
-  },
-  {
-    company: 'Stefanini',
-    period: 'Jan 2022 - Jun 2022',
-    role: 'Front End Developer',
-    description: 'Implemented features and resolved vulnerabilities in ReactJS and SASS platforms. Optimized reusable components to improve visual consistency.',
-    isCurrent: false,
-  },
-  {
-    company: 'Entelgy',
-    period: 'Mar 2021 – Dec 2021',
-    role: 'Front End Developer',
-    description: 'Developed components in LitElement. Implemented unit tests with Mocha and E2E tests. Managed tasks with JIRA in agile sprints.',
-    isCurrent: false,
-  },
-  {
-    company: 'Playtec',
-    period: 'Feb 2019 – Mar 2021',
-    role: 'Team Lead',
-    description: 'Designed web apps with ReactJS, Redux, Hooks. Developed backend solutions with Express/NodeJS and AWS. Collaborated on UX/UI with Figma and led the development team.',
-    isCurrent: false,
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const Experience: React.FC = () => {
+  const { t } = useTranslation();
+
+  const experienceData = [
+    {
+      company: 'Intercorp Retail',
+      period: 'Jun 2022 – Present',
+      role: t('experience.roles.intercorp.role'),
+      description: t('experience.roles.intercorp.description'),
+      isCurrent: true,
+    },
+    {
+      company: 'Stefanini',
+      period: 'Jan 2022 - Jun 2022',
+      role: t('experience.roles.stefanini.role'),
+      description: t('experience.roles.stefanini.description'),
+      isCurrent: false,
+    },
+    {
+      company: 'Entelgy',
+      period: 'Mar 2021 – Dec 2021',
+      role: t('experience.roles.entelgy.role'),
+      description: t('experience.roles.entelgy.description'),
+      isCurrent: false,
+    },
+    {
+      company: 'Playtec',
+      period: 'Feb 2019 – Mar 2021',
+      role: t('experience.roles.playtec.role'),
+      description: t('experience.roles.playtec.description'),
+      isCurrent: false,
+    },
+  ];
+
   return (
     <section id="experience" className="py-20 bg-light-gray">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          My Work <span className="text-primary">Experience</span>
+          {t('experience.title')} <span className="text-primary">{t('experience.titleHighlight')}</span>
         </h2>
         <div className="relative max-w-4xl mx-auto">
           {/* Center Line */}

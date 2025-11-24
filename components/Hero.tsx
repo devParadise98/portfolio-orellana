@@ -3,19 +3,22 @@ import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
 import { images } from '@/assets/images';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="home" className="relative bg-white pt-10 pb-20 text-center overflow-hidden">
       <div className="container mx-auto px-4 z-10 relative">
         <div className="inline-block bg-white border border-gray-200 rounded-full px-4 py-1 mb-4">
-          <span className="text-sm">Hello! 👋</span>
+          <span className="text-sm">{t('hero.greeting')}</span>
         </div>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900">
-          I'm <span className="text-primary">Miryan</span>,
+          {t('hero.im')} <span className="text-primary">Miryan</span>,
         </h1>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mt-2">
-          Front End Developer
+          {t('hero.role')}
         </h1>
 
         <div className="mt-8 flex justify-center items-end">
@@ -28,10 +31,10 @@ const Hero: React.FC = () => {
             />
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-4 glassmorphism border border-white/20 rounded-full px-4 py-3">
               <a href="#portfolio" className="bg-primary text-black font-semibold rounded-full px-6 py-2 flex items-center gap-2">
-                Portfolio <FiArrowUpRight />
+                {t('hero.portfolio')} <FiArrowUpRight />
               </a>
               <a href="#contact" className="text-white font-semibold rounded-full px-6 py-2">
-                Hire me
+                {t('hero.hireMe')}
               </a>
             </div>
           </div>
@@ -40,15 +43,15 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-20 max-w-xs text-left hidden md:block">
           <p className="text-gray-600 text-lg">
             <span className="text-primary text-4xl font-serif">“</span>
-            With over 5 years of experience in frontend development, I have contributed to the design and implementation of efficient, user-centered interfaces.
+            {t('hero.summary')}
           </p>
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-20 text-left hidden md:block">
           <div className="flex text-primary text-2xl">
             <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
           </div>
-          <p className="text-5xl font-bold mt-2">5+ <span className="text-gray-400">Years</span></p>
-          <p className="text-gray-600">Experience</p>
+          <p className="text-5xl font-bold mt-2">5+ <span className="text-gray-400">{t('hero.years')}</span></p>
+          <p className="text-gray-600">{t('hero.experience')}</p>
         </div>
       </div>
     </section>
